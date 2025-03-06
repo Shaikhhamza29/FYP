@@ -6,11 +6,8 @@ const isPublicRoute = createRouteMatcher([
 ])
 
 export default clerkMiddleware(async (auth, request) => {
-  if (!isPublicRoute(request)) {
-    await auth.protect()
-  }
-  publicRoutes :['/api/uploadthing']
-})
+  PublicRoutes :["/api/uploadthing"]
+});
 
 export const config = {
   matcher: [
