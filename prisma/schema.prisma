@@ -9,7 +9,7 @@ generator client {
 
 model Profile {
   id        String      @id @default(uuid())
-  userId    String      @unique
+  userId    String      @unique 
   name      String
   imageUrl  String      @db.Text
   email     String      @db.Text
@@ -19,7 +19,7 @@ model Profile {
   members   Member[]    
   channels  Channel[]
   
-  createdAt  DateTime      @default(now())
+  createdAt DateTime      @default(now())
   updatedAt DateTime      @updatedAt
 
 }
@@ -30,7 +30,7 @@ model Profile {
 model Server {
   id          String      @id @default(uuid())
   name        String
-  ImageUrl    String      @db.Text
+  imageUrl    String      @db.Text
   inviteCode  String      @db.Text
 
   members   Member[] 
@@ -38,7 +38,7 @@ model Server {
 
   profileId   String 
   profile     Profile     @relation(fields: [profileId],references:[id],onDelete:Cascade)
-  createdAt    DateTime    @default(now())
+  createdAt    DateTime   @default(now())
   updatedAt   DateTime    @updatedAt
   
   @@index([profileId])
